@@ -1,7 +1,7 @@
 RSpec::Support.require_rspec_core "formatters/bisect_progress_formatter"
 
 module RSpec::Core
-  RSpec.describe "Bisect", :slow, :simulate_shell_allowing_unquoted_ids do
+  RSpec.describe "Bisect", :slow, :simulate_shell_allowing_unquoted_ids, :failing_on_appveyor => (RUBY_VERSION.to_f > 2.0) do
     include FormatterSupport
 
     def bisect(cli_args, expected_status=nil)
